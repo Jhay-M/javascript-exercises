@@ -18,18 +18,20 @@
                     let bigCap = alphaBet.indexOf(item);
                     let smallSum = smallCap + int;
                     let bigSum = bigCap + int;
-                
+                    
                     if (smallCap >= 0) {
-                        if (smallSum > 25) {
-                            return alphabet[smallSum - 26];
+                        if (smallSum > 0) {
+                            return alphabet[smallSum % 26];
                         } else if (smallSum < 0) {
-                            return alphabet[26 + smallSum];
+                            let shift = (smallSum % 26);
+                            return alphabet[25 + shift];
                         } else return alphabet[smallSum];
                     } else if (bigCap >= 0) {
-                        if (bigSum > 25) {
-                            return alphaBet[bigSum - 26];
+                        if (bigSum > 0) {
+                            return alphaBet[bigSum % 26];
                         } else if ( bigSum < 0) {
-                            return alphaBet[26 + bigSum];
+                            let shift = (bigSum % 26);
+                            return alphaBet[25 + shift];
                         } else return alphaBet[bigSum];
                     } else return item;
                 })
