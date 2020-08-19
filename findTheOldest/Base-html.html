@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    const people = [
+      {
+        name: 'Carly',
+        yearOfBirth: 2018,
+      },
+      {
+        name: 'Ray',
+        yearOfBirth: 1962,
+        yearOfDeath: 2011
+      },
+      {
+        name: 'Jane',
+        yearOfBirth: 1912,
+        yearOfDeath: 1941
+      },
+    ]
+    let findTheOldest = (arr => {
+    let newDate = new Date().getFullYear();
+    let array = arr
+                    .map(obj => {
+                        if (!obj.yearOfDeath) {
+                        obj.yearsLived = newDate - obj.yearOfBirth;
+                        } 
+                        obj.yearsLived = obj.yearOfDeath - obj.yearOfBirth;
+                        return obj;
+                        })
+                    .sort((a, b) => {
+                        let lastTotal = a.yearsLived;
+                        let nextTotal = b.yearsLived;
+    
+                        return lastTotal > nextTotal ? -1: 1;
+                    });
+    return array[0];
+    }); 
+  </script>
+</body>
+</html>
